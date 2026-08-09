@@ -22,6 +22,16 @@
     color: #002631;
 }
 
+.icon-people svg{
+    width: 20px;
+    height: 20px;
+    color: #79A8BA;
+}
+
+.icon-trip svg{
+    color: #79A8BA;
+}
+
 
 .scrollbar-hide::-webkit-scrollbar {
     display: none;

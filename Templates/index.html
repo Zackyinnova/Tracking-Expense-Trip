@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-[#F8F9FA] flex flex-col md:flex-row">
-    <header class="sticky top-0  px-5 py-5 bg-white border-b-2 ">
+    <header class="px-5 py-5 bg-white md:sticky md:top-0 md:h-screen md:w-[18%] md:border-r md:border-[#E1E3E4]">
             <!--For Mobile-->
             <section class="md:hidden">
                 <!--Left Navbar-->
@@ -38,13 +38,49 @@
 
             <!--For Deskop-->
             <section>
-                <div class="p-4 flex flex-col">
+                <div class="hidden md:block p-4 flex flex-col gap-6 ">
 
+                    <!--Header side bar-->
+                    <div class="flex flex-row items-center gap-2 py-2 pt-4 pb-6 border-b border-[#E1E3E4] ">
+                        <div class="bg-[#003D4D] flex justify-center w-[40px] h-[40px] items-center rounded-full">
+                            <div class="icon-people">
+                                <i data-lucide="user"></i>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <P class="text-[#002631] font-semibold text-[24px]">TripTrack</P>
+
+                            <P class="text-[#41484B] font-semibold text-[12px] whitespace-nowrap">Manage Expenses</P>
+                        </div>
+                    </div>
+
+                    <nav class="flex flex-col gap-3">
+                        <a href="">
+                            <div class="bg-[#003D4D] px-4 py-2 flex flex-row items-center gap-2 rounded">
+                                <div class="icon-trip">
+                                    <i data-lucide="backpack"></i>
+                                </div>
+
+                                <P class="text-[#79A8BA] font-bold text-[12px]">My Trips</P>
+                            </div>
+                        </a>
+
+                        <a href="">
+                            <div class=" px-4 py-2 flex flex-row items-center gap-2 rounded">
+                                <div class="icon-settings text-[#41484B] ">
+                                    <i data-lucide="settings"></i>
+                                </div>
+
+                                <P class="text-[#41484B] font-bold text-[12px]">settings</P>
+                            </div>
+                        </a>
+                    </nav>
                 </div>
             </section>
     </header>
 
-    <main class="w-full">
+    <main class="flex-1">
         <!--Header main-->
         <section>
             <div class="px-5 py-4">
@@ -57,7 +93,7 @@
 
         <!--Trip List-->
         <section>
-            <div class="px-5 py-4 flex flex-col gap-6 max-h-[70vh] scrollbar-hide overflow-auto">
+            <div class="px-5 py-4 grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[70vh] scrollbar-hide overflow-auto ">
                 <div class="bg-white p-4 rounded-[12px] flex flex-col gap-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
                     <!--header card-->
                     <div class="flex flex-col gap-2 ">
