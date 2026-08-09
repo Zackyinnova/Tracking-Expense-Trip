@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bandung Trip - TripTrack</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#2c1700",
+                        "outline": "#71787c",
+                        "surface": "#f8f9fa",
+                        "surface-container": "#edeeef",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#9ecee1",
+                        "primary-container": "#003d4d",
+                        "on-surface-variant": "#41484b",
+                        "on-background": "#191c1d",
+                        "background": "#f8f9fa",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "surface-dim": "#d9dadb",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-fixed": "#00201d",
+                        "on-primary-fixed-variant": "#194d5d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#79a8ba",
+                        "surface-container-low": "#f3f4f5",
+                        "primary": "#002631",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "secondary": "#895100",
+                        "on-tertiary-container": "#01b4a6",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#baeafe",
+                        "secondary-fixed-dim": "#ffb86b",
+                        "secondary-fixed": "#ffdcbc",
+                        "outline-variant": "#c0c8cc",
+                        "inverse-primary": "#9ecee1",
+                        "surface-bright": "#f8f9fa",
+                        "surface-tint": "#356476",
+                        "surface-container-high": "#e7e8e9",
+                        "tertiary-fixed": "#70f8e8",
+                        "surface-variant": "#e1e3e4",
+                        "tertiary-fixed-dim": "#4fdbcc",
+                        "on-secondary-container": "#663b00",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "tertiary": "#002724",
+                        "tertiary-container": "#003f3a",
+                        "secondary-container": "#fd9d1a",
+                        "on-primary-fixed": "#001f28"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-margin": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "currency-display": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "currency-display": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .font-variation-fill { font-variation-settings: 'FILL' 1; }
+        .ambient-shadow { box-shadow: 0px 4px 20px rgba(0, 61, 77, 0.05); }
+        .safe-pb { padding-bottom: calc(64px + env(safe-area-inset-bottom, 20px)); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background dark:bg-background flex items-center justify-between px-container-margin h-16 w-full">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="explore">explore</span>
+<span class="font-headline-md text-headline-md-mobile text-primary dark:text-primary-fixed-dim font-bold tracking-tight">TripTrack</span>
+</div>
+<div>
+<img class="w-8 h-8 rounded-full object-cover outline outline-2 outline-surface-variant" data-alt="A professional headshot of a user, clean lighting, neutral background, corporate aesthetic, high resolution portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Rc9gaRYTTORNEazaK74Hc9IBvdiRzSUNlVxU7YjvQtF80r4iKyUX_5IeWk2Ucql3gHyxNsKxu8APXQrxiMdaAswYJiz8BrN8QtHvnRRcRPF6ezEN7VRNkdeeuGO1LNLr1nRldb0fGF-esACcYpOuN9Z9juXNlPa_S6srcHeqWcgm7MWaSQNMB1WLeig8nIbmHbdPCkL-ZKUg8Yb0jLZoe1k0QRvxcip5vwkz06fDYDaLno5NClV1qg"/>
+</div>
+</header>
+<main class="pt-20 px-container-margin safe-pb max-w-3xl mx-auto w-full flex flex-col gap-lg">
+<!-- Breadcrumb & Header -->
+<section class="flex flex-col gap-sm mt-4">
+<div class="text-on-surface-variant font-label-md text-label-md flex items-center gap-1">
+<span>My Trips</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Bandung Trip</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg-mobile text-on-surface">Bandung Trip</h1>
+<div class="flex items-center gap-md text-on-surface-variant font-body-sm text-body-sm mt-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Bandung</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+<span>9–11 Agustus 2026</span>
+</div>
+</div>
+</section>
+<!-- Summary Cards Bento Grid -->
+<section class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow flex flex-col gap-sm active:scale-[0.98] transition-transform">
+<span class="text-on-surface-variant font-label-md text-label-md">Total Expense</span>
+<span class="font-currency-display text-currency-display text-on-surface">Rp735.000</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow flex flex-col gap-sm active:scale-[0.98] transition-transform">
+<span class="text-on-surface-variant font-label-md text-label-md">Remaining Budget</span>
+<span class="font-headline-sm text-headline-sm text-on-tertiary-container">Rp765.000</span>
+<span class="text-on-surface-variant font-body-sm text-[10px] mt-auto">Budget awal Rp1.500.000</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow flex flex-col gap-sm active:scale-[0.98] transition-transform">
+<span class="text-on-surface-variant font-label-md text-label-md">Transactions</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">12</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow flex flex-col gap-sm active:scale-[0.98] transition-transform">
+<span class="text-on-surface-variant font-label-md text-label-md">Average Expense</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Rp61.250</span>
+</div>
+</section>
+<!-- Statistics Charts (Placeholders for complex viz) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow flex flex-col gap-sm h-64">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Expense by Category</h3>
+<div class="flex-1 flex items-center justify-center relative">
+<!-- Donut Chart Placeholder Visual -->
+<div class="w-32 h-32 rounded-full border-[16px] border-surface-container relative">
+<div class="absolute inset-[-16px] rounded-full border-[16px] border-primary" style="clip-path: polygon(50% 50%, 100% 0, 100% 100%, 0 100%, 0 50%);"></div>
+<div class="absolute inset-[-16px] rounded-full border-[16px] border-secondary-container" style="clip-path: polygon(50% 50%, 0 50%, 0 0, 50% 0);"></div>
+<div class="absolute inset-[-16px] rounded-full border-[16px] border-tertiary-container" style="clip-path: polygon(50% 50%, 50% 0, 100% 0);"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-md ambient-shadow flex flex-col gap-sm h-64">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Expense Timeline</h3>
+<div class="flex-1 flex items-end justify-around pb-2 gap-2">
+<!-- Bar Chart Placeholder Visual -->
+<div class="w-full bg-surface-container rounded-t-sm h-[40%] relative"><div class="absolute top-[-24px] left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant">9 Ags</div></div>
+<div class="w-full bg-primary rounded-t-sm h-[80%] relative"><div class="absolute top-[-24px] left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant font-bold text-primary">10 Ags</div></div>
+<div class="w-full bg-surface-container rounded-t-sm h-[60%] relative"><div class="absolute top-[-24px] left-1/2 -translate-x-1/2 text-[10px] text-on-surface-variant">11 Ags</div></div>
+</div>
+</div>
+</section>
+<!-- Filter & Actions -->
+<section class="flex flex-col gap-md sticky top-16 bg-background z-40 py-2">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Transactions</h2>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full font-label-md text-label-md flex items-center gap-1 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                    Add Transaction
+                </button>
+</div>
+<div class="flex gap-2 w-full">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline/30 rounded-lg pl-9 pr-3 py-2 text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors" placeholder="Search..." type="text"/>
+</div>
+<select class="bg-surface-container-lowest border border-outline/30 rounded-lg px-3 py-2 text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none w-32">
+<option>All Categories</option>
+<option>Food</option>
+<option>Transport</option>
+</select>
+</div>
+</section>
+<!-- Transaction List -->
+<section class="flex flex-col gap-3">
+<div class="bg-surface-container-lowest p-md rounded-xl ambient-shadow flex items-center justify-between active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-[20px]">
+                        🍜
+                    </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Nasi Goreng</span>
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm">
+<span>09 Ags 2026</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>Cash</span>
+</div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">-Rp35.000</span>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl ambient-shadow flex items-center justify-between active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-[20px]">
+                        🚗
+                    </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Grab</span>
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm">
+<span>09 Ags 2026</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>E-Wallet</span>
+</div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">-Rp25.000</span>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl ambient-shadow flex items-center justify-between active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-[#f3e8ff] flex items-center justify-center text-[20px]">
+                        🏨
+                    </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Hotel (1 malam)</span>
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm">
+<span>10 Ags 2026</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>Transfer</span>
+</div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">-Rp300.000</span>
+</div>
+<div class="bg-surface-container-lowest p-md rounded-xl ambient-shadow flex items-center justify-between active:scale-[0.98] transition-transform">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-[#ffedd5] flex items-center justify-center text-[20px]">
+                        🛍️
+                    </div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Oleh-oleh</span>
+<div class="flex items-center gap-2 text-on-surface-variant text-body-sm">
+<span>11 Ags 2026</span>
+<span class="w-1 h-1 rounded-full bg-outline"></span>
+<span>Cash</span>
+</div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">-Rp150.000</span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 h-[64px] pb-[env(safe-area-inset-bottom)] bg-surface dark:bg-surface-container shadow-[0px_-4px_20px_rgba(0,61,77,0.05)] flex justify-around items-center w-full px-container-margin">
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors active:scale-90 duration-150 w-20 h-full rounded-lg">
+<span class="material-symbols-outlined font-variation-fill mb-1" data-icon="wallet_travel">view_real_size</span>
+<span class="font-label-md text-label-md">My Trips</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors active:scale-90 duration-150 w-20 h-full rounded-lg -mt-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</div>
+<!-- Label omitted for central Add button per styling typicality, though JSON provides it, Add is visually distinct -->
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors active:scale-90 duration-150 w-20 h-full rounded-lg">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</button>
+</nav>
+</body></html>

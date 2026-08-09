@@ -1,0 +1,24 @@
+* {
+    font-family: "Inter", sans-serif;
+}
+
+.trip-icon svg{
+    color: #002631;
+    width: 30px;
+    height: 30px;
+}
+
+.location-icon svg{
+    color: #41484B;
+    width: 20px;
+    height: 20px;
+}
+
+.total-icon svg{
+    color: #41484B;
+}
+
+.icon-list{
+    color: #002631;
+}
+
