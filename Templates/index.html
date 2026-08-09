@@ -14,27 +14,37 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-[#F8F9FA]">
-    <header class="sticky top-0 w-full px-5 py-5 bg-white border-b-2 ">
-            <!--Left Navbar-->
-            <div class="flex flex-row items-center gap-1">
-                
-                <div class="trip-icon">
-                    <i data-lucide="compass"></i>
+<body class="bg-[#F8F9FA] flex flex-col md:flex-row">
+    <header class="sticky top-0  px-5 py-5 bg-white border-b-2 ">
+            <!--For Mobile-->
+            <section class="md:hidden">
+                <!--Left Navbar-->
+                <div class="flex flex-row items-center gap-1">
+                    
+                    <div class="trip-icon">
+                        <i data-lucide="compass"></i>
+                    </div>
+
+                    <div>
+                        <P class="font-semibold text-[24px] text-[#002631]">TripTrack</P>
+                    </div>
                 </div>
 
-                <div>
-                    <P class="font-semibold text-[24px] text-[#002631]">TripTrack</P>
+                <!--Right Navbar-->
+                <div class="">
+
                 </div>
-            </div>
+            </section>
 
-            <!--Right Navbar-->
-            <div class="">
+            <!--For Deskop-->
+            <section>
+                <div class="p-4 flex flex-col">
 
-            </div>
+                </div>
+            </section>
     </header>
 
-    <main>
+    <main class="w-full">
         <!--Header main-->
         <section>
             <div class="px-5 py-4">
