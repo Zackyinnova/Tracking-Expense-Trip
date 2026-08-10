@@ -277,7 +277,7 @@
             </a>
 
 
-            <div class="flex flex-col items-center gap-1">
+            <div class="flex flex-col items-center gap-1" id="btnAddTrip">
                     <div class="icon-lis">
                         <i data-lucide="circle-plus"></i>
                     </div>
@@ -300,8 +300,11 @@
     </div>
 
     <!--Overlay add task-->
-    <div class="z-[60] bg-black/55 h-full w-full fixed top-0 flex justify-center items-end">
-        <div class="bg-white w-full h-[80%] rounded-t-[24px]   ">
+    <div id="overlayAddTrip"
+        class=" hidden z-[60] bg-black/55 h-full w-full fixed top-0 flex justify-center items-end">
+        
+        <div 
+            class="bg-white w-full h-[80%] rounded-t-[24px]   ">
             <!--header overlay add task-->
             <div class="py-6 border-b px-5 border-[#EDEEEF] flex flex-row justify-between items-center  ">
                 <P class="font-semibold text-[20px]">Add Transaction</P>
@@ -311,7 +314,7 @@
                 </div>
             </div>
 
-            <form class="h-full flex flex-col">
+            <form class="h-full flex flex-col" action="/submitNewTrip" method="post">
 
                 <!-- AREA FORM YANG BISA DI-SCROLL -->
                 <div class="flex-1 min-h-0 overflow-y-auto px-5 py-4">
@@ -326,6 +329,7 @@
                             type="text"
                             placeholder="e.g. Summer in Italy"
                             class="w-full border border-[#C0C8CC] px-5 py-4 rounded-[8px] mt-2 font-bold text-[#6B7280] focus:text-black"
+                            name="trip_name"
                             required
                         >
                     </div>
@@ -345,8 +349,9 @@
 
                             <input
                                 type="text"
-                                placeholder="0"
-                                class="w-full border border-[#C0C8CC] pl-12 pr-4 py-4 rounded-[8px] outline-none"
+                                placeholder="City, Country"
+                                class="w-full border border-[#C0C8CC] pl-12 pr-4 py-4 rounded-[8px] outline-none focus:border-black focus:text-black"
+                                name="location"
                             >
                         </div>
                     </div>
@@ -363,6 +368,7 @@
                             <input
                                 type="date"
                                 class="w-full border border-[#C0C8CC] px-2 py-4 rounded-[8px] mt-2 font-bold text-[#6B7280] focus:text-black"
+                                name="start_date"
                                 required
                             >
                         </div>
@@ -375,6 +381,7 @@
                             <input
                                 type="date"
                                 class="w-full border border-[#C0C8CC] px-2 py-4 rounded-[8px] mt-2 font-bold text-[#6B7280] focus:text-black"
+                                name="end_date"
                                 required
                             >
                         </div>
@@ -397,7 +404,8 @@
                             <input
                                 type="text"
                                 placeholder="0"
-                                class="w-full border border-[#C0C8CC] pl-12 pr-4 py-4 rounded-[8px] outline-none"
+                                class="w-full border border-[#C0C8CC] pl-12 pr-4 py-4 rounded-[8px] outline-none focus:border-black focus:text-black"
+                                name="total_budget"
                             >
                         </div>
                     </div>
@@ -413,7 +421,8 @@
                             rows="4"
                             placeholder="Tambahkan catatan..."
                             class="w-full resize-none rounded-lg border border-[#EDEEEF] px-4 py-3 mt-2 text-left outline-none focus:border-[#003D4D]"
-                        ></textarea>
+                            name="note_trip"
+                            ></textarea>
                     </div>
 
                 </div>
@@ -447,6 +456,6 @@
         lucide.createIcons();
     </script>
 
-    <script src="/Static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
