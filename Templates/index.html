@@ -298,10 +298,155 @@
         </div>
         
     </div>
+
+    <!--Overlay add task-->
+    <div class="z-[60] bg-black/55 h-full w-full fixed top-0 flex justify-center items-end">
+        <div class="bg-white w-full h-[80%] rounded-t-[24px]   ">
+            <!--header overlay add task-->
+            <div class="py-6 border-b px-5 border-[#EDEEEF] flex flex-row justify-between items-center  ">
+                <P class="font-semibold text-[20px]">Add Transaction</P>
+
+                <div class="cancel-icon">
+                    <i data-lucide="x"></i>
+                </div>
+            </div>
+
+            <form class="h-full flex flex-col">
+
+                <!-- AREA FORM YANG BISA DI-SCROLL -->
+                <div class="flex-1 min-h-0 overflow-y-auto px-5 py-4">
+
+                    <!-- Trip Name -->
+                    <div class="mb-6">
+                        <p class="font-semibold text-[14px] text-[#41484B]">
+                            Trip Name
+                        </p>
+
+                        <input
+                            type="text"
+                            placeholder="e.g. Summer in Italy"
+                            class="w-full border border-[#C0C8CC] px-5 py-4 rounded-[8px] mt-2 font-bold text-[#6B7280] focus:text-black"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Total Budget -->
+                    <div class="mb-6">
+                        <p class="font-semibold text-[14px] text-[#41484B]">
+                            Destination
+                        </p>
+
+                        <div class="relative mt-2">
+                            <i
+                                data-lucide="map-pin"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6B7280]"
+                            ></i>
+
+                            <input
+                                type="text"
+                                placeholder="0"
+                                class="w-full border border-[#C0C8CC] pl-12 pr-4 py-4 rounded-[8px] outline-none"
+                            >
+                        </div>
+                    </div>
+
+
+                    <!-- Start & End Date -->
+                    <div class="flex flex-row gap-4 mb-6">
+
+                        <div class="w-full">
+                            <p class="font-semibold text-[14px] text-[#41484B]">
+                                Start Date
+                            </p>
+
+                            <input
+                                type="date"
+                                class="w-full border border-[#C0C8CC] px-2 py-4 rounded-[8px] mt-2 font-bold text-[#6B7280] focus:text-black"
+                                required
+                            >
+                        </div>
+
+                        <div class="w-full">
+                            <p class="font-semibold text-[14px] text-[#41484B]">
+                                End Date
+                            </p>
+
+                            <input
+                                type="date"
+                                class="w-full border border-[#C0C8CC] px-2 py-4 rounded-[8px] mt-2 font-bold text-[#6B7280] focus:text-black"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- Total Budget -->
+                    <div class="mb-6">
+                        <p class="font-semibold text-[14px] text-[#41484B]">
+                            Total Budget
+                        </p>
+
+                        <div class="relative mt-2">
+                            <i
+                                data-lucide="wallet"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6B7280]"
+                            ></i>
+
+                            <input
+                                type="text"
+                                placeholder="0"
+                                class="w-full border border-[#C0C8CC] pl-12 pr-4 py-4 rounded-[8px] outline-none"
+                            >
+                        </div>
+                    </div>
+
+
+                    <!-- Notes -->
+                    <div class="mb-6">
+                        <p class="font-semibold text-[14px] text-[#41484B]">
+                            Notes (opsional)
+                        </p>
+
+                        <textarea
+                            rows="4"
+                            placeholder="Tambahkan catatan..."
+                            class="w-full resize-none rounded-lg border border-[#EDEEEF] px-4 py-3 mt-2 text-left outline-none focus:border-[#003D4D]"
+                        ></textarea>
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTON AREA -->
+                <div class="shrink-0 border-t border-[#EDEEEF] bg-white p-5">
+
+                    <button
+                        type="submit"
+                        class="w-full bg-[#003D4D] text-white py-4 rounded-lg"
+                    >
+                        Create Trip
+                    </button>
+
+                    <button
+                        type="button"
+                        class="w-full mt-3 border border-[#003D4D] text-[#003D4D] py-4 rounded-lg"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
     
     <script>
         lucide.createIcons();
     </script>
 
+    <script src="/Static/js/script.js"></script>
 </body>
 </html>
