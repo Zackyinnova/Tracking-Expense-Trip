@@ -21,10 +21,27 @@ db = mysql.connector.connect(
 
 @app.route('/')
 def index():
-    
+
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT *
+        FROM trips
+        ORDER BY
+            CASE status_trip
+                WHEN 'Active' THEN 1
+                WHEN 'Coming Soon' THEN 2
+                WHEN 'Completed' THEN 3
+                ELSE 4
+            END,
+            start_date ASC
+    """)
+
+    trips = cursor.fetchall()
 
     return render_template(
-        "index.html"
+        "index.html",
+        trips = trips
     )
 
 @app.route('/submitNewTrip', methods = ['POST'])
@@ -69,10 +86,15 @@ def update_status_trip():
     cursor.execute("""
         UPDATE trips
         SET status_trip = CASE
-            WHEN start_date > CUREDATE() THEN 'Coming soon'
+            WHEN start_date > CURDATE()
+                THEN 'Coming Soon'
+
             WHEN start_date <= CURDATE()
-                 AND end_date >= CURDATE() THEN 'Active'
-            WHEN end_date < CURDATE() THEN 'Completed'
+                AND end_date >= CURDATE()
+                THEN 'Active'
+
+            WHEN end_date < CURDATE()
+                THEN 'Completed'
         END
     """)
 

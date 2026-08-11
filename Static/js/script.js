@@ -10,3 +10,18 @@ overlayAddTrip.addEventListener("click", (e) =>{
         overlayAddTrip.style.display = "none";
     }
 });
+
+const budgetDisplay = document.getElementById("budget_display");
+const budgetValue = document.getElementById("total_budget");
+
+budgetDisplay.addEventListener("input", function(){
+    let value = this.value.replace(/\D/g,"");
+
+    budgetValue.value = value;
+
+    if(value){
+        this.value = "Rp" + Number(value).toLocaleString("id-ID");
+    }else{
+        this.value = "";
+    }
+});

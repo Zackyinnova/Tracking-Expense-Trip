@@ -94,14 +94,19 @@
         <!--Trip List-->
         <section>
             <div class="px-5 py-4 grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[70vh] scrollbar-hide overflow-auto ">
-                <div class="bg-white p-4 rounded-[12px] flex flex-col gap-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
+
+                {% for list in trips %}
+                    <div class="bg-white p-4 rounded-[12px] flex flex-col gap-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
                     <!--header card-->
                     <div class="flex flex-col gap-2 ">
                         <!--Tittle card-->
                         <div class="flex flex-row items-center justify-between">
-                            <P class="text-[#002631] font-semibold text-[20px]">Bandung Trip</P>
+                            <P class="text-[#002631] font-semibold text-[20px]">{{ list.trip_name}}</P>
 
-                            <P class="bg-[#003D4D] text-[#79a8ba] px-3 py-1 rounded-[4px]">9-11 ags 2026</P>
+                            <p class="bg-[#003D4D] text-[#79a8ba] px-3 py-1 rounded-[4px]">
+                                {{ list.start_date.day }} -
+                                {{ list.end_date.strftime('%d %b %Y') }}
+                            </p>
 
                         </div>
 
@@ -111,7 +116,7 @@
                                 <i data-lucide="map-pin"></i>
                             </div>
 
-                            <P>Bandung</P>
+                            <P>{{ list.location }}</P>
                         </div>
                     </div>
 
@@ -133,130 +138,9 @@
                         </div>
                         
                     </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-[12px] flex flex-col gap-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
-                    <!--header card-->
-                    <div class="flex flex-col gap-2 ">
-                        <!--Tittle card-->
-                        <div class="flex flex-row items-center justify-between">
-                            <P class="text-[#002631] font-semibold text-[20px]">Bandung Trip</P>
-
-                            <P class="bg-[#003D4D] text-[#79a8ba] px-3 py-1 rounded-[4px]">9-11 ags 2026</P>
-
-                        </div>
-
-                        <!--Location card-->
-                        <div class="flex flex-row items-center gap-2">
-                            <div class="location-icon">
-                                <i data-lucide="map-pin"></i>
-                            </div>
-
-                            <P>Bandung</P>
-                        </div>
                     </div>
+                {% endfor %}
 
-                    <!--bottom card-->
-                    <div class="flex flex-row justify-between border-t-2  border-[#C0C8CC]/30 pt-4">
-                        <div class="">
-                            <P class="uppercase font-semibold text-[12px] text-[#71787C]">Total pegeluaran</P>
-
-                            <P class="font-bold text-[28px] color-black">Rp 735.000</P>
-                        </div>
-
-                        <div class="bg-[#F3F4F5] px-3 py-2 h-fit flex flex-row gap-2 rounded-[4px]">
-                            <div class="total-icon">
-                                <i data-lucide="scroll-text"></i>
-                                    
-                            </div>
-
-                            <P class="text-[#41484B] font-semibold">18</P>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-[12px] flex flex-col gap-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
-                    <!--header card-->
-                    <div class="flex flex-col gap-2 ">
-                        <!--Tittle card-->
-                        <div class="flex flex-row items-center justify-between">
-                            <P class="text-[#002631] font-semibold text-[20px]">Bandung Trip</P>
-
-                            <P class="bg-[#003D4D] text-[#79a8ba] px-3 py-1 rounded-[4px]">9-11 ags 2026</P>
-
-                        </div>
-
-                        <!--Location card-->
-                        <div class="flex flex-row items-center gap-2">
-                            <div class="location-icon">
-                                <i data-lucide="map-pin"></i>
-                            </div>
-
-                            <P>Bandung</P>
-                        </div>
-                    </div>
-
-                    <!--bottom card-->
-                    <div class="flex flex-row justify-between border-t-2  border-[#C0C8CC]/30 pt-4">
-                        <div class="">
-                            <P class="uppercase font-semibold text-[12px] text-[#71787C]">Total pegeluaran</P>
-
-                            <P class="font-bold text-[28px] color-black">Rp 735.000</P>
-                        </div>
-
-                        <div class="bg-[#F3F4F5] px-3 py-2 h-fit flex flex-row gap-2 rounded-[4px]">
-                            <div class="total-icon">
-                                <i data-lucide="scroll-text"></i>
-                                    
-                            </div>
-
-                            <P class="text-[#41484B] font-semibold">18</P>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-[12px] flex flex-col gap-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
-                    <!--header card-->
-                    <div class="flex flex-col gap-2 ">
-                        <!--Tittle card-->
-                        <div class="flex flex-row items-center justify-between">
-                            <P class="text-[#002631] font-semibold text-[20px]">Bandung Trip</P>
-
-                            <P class="bg-[#003D4D] text-[#79a8ba] px-3 py-1 rounded-[4px]">9-11 ags 2026</P>
-
-                        </div>
-
-                        <!--Location card-->
-                        <div class="flex flex-row items-center gap-2">
-                            <div class="location-icon">
-                                <i data-lucide="map-pin"></i>
-                            </div>
-
-                            <P>Bandung</P>
-                        </div>
-                    </div>
-
-                    <!--bottom card-->
-                    <div class="flex flex-row justify-between border-t-2  border-[#C0C8CC]/30 pt-4">
-                        <div class="">
-                            <P class="uppercase font-semibold text-[12px] text-[#71787C]">Total pegeluaran</P>
-
-                            <P class="font-bold text-[28px] color-black">Rp 735.000</P>
-                        </div>
-
-                        <div class="bg-[#F3F4F5] px-3 py-2 h-fit flex flex-row gap-2 rounded-[4px]">
-                            <div class="total-icon">
-                                <i data-lucide="scroll-text"></i>
-                                    
-                            </div>
-
-                            <P class="text-[#41484B] font-semibold">18</P>
-                        </div>
-                        
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -265,7 +149,7 @@
     <div class="bg-white md:hidden fixed bottom-0 left-0 right-0 shadow-[0_-4px_20px_0_rgba(0,61,77,0.05)] ">
         
         <div class="flex flex-row flex-row justify-between px-5 py-4">
-            <a href="/index">
+            <a href="/">
                 <div class="flex flex-col items-center gap-1">
                     <div class="icon-list">
                         <i data-lucide="list"></i>
@@ -299,7 +183,7 @@
         
     </div>
 
-    <!--Overlay add task-->
+    <!--Overlay add trip-->
     <div id="overlayAddTrip"
         class=" hidden z-[60] bg-black/55 h-full w-full fixed top-0 flex justify-center items-end">
         
@@ -401,11 +285,19 @@
                                 class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6B7280]"
                             ></i>
 
+                            <!-- Yang dilihat user -->
                             <input
                                 type="text"
-                                placeholder="0"
+                                id="budget_display"
+                                placeholder="Rp 0"
                                 class="w-full border border-[#C0C8CC] pl-12 pr-4 py-4 rounded-[8px] outline-none focus:border-black focus:text-black"
+                                autocomplete="off"
+                            >
+
+                            <input
+                                type="hidden"
                                 name="total_budget"
+                                id="total_budget"
                             >
                         </div>
                     </div>
