@@ -21,7 +21,7 @@ db = mysql.connector.connect(
 
 @app.route('/')
 def index():
-
+    
 
     return render_template(
         "index.html"
@@ -47,14 +47,40 @@ def submitNewTrip():
 
     cursor.execute("""
         INSERT INTO trips
-        (trip_name, location, start_date, end_date, total_budget, notes)
-        Values (%s, %s, %s, %s, %s, %s)
-    """, (trip_name, location, start_date, end_date, total_budget, notes))
+        (trip_name, location, start_date, end_date, total_budget, notes, status_trip)
+        Values (%s, %s, %s, %s, %s, %s,%s)
+    """, (trip_name, location, start_date, end_date, total_budget, notes, "Coming Son"))
 
     db.commit()
     cursor.close()
 
     return redirect( url_for('index'))
+
+scheduler = APScheduler()
+scheduler.init_app(app)
+scheduler.start()
+
+@scheduler.task('interval', id='update_status', minutes=1)
+def update_status_trip():
+    print('data berhasil di update')
+
+    cursor = db.cursor()
+
+    cursor.execute("""
+        UPDATE trips
+        SET status_trip = CASE
+            WHEN start_date > CUREDATE() THEN 'Coming soon'
+            WHEN start_date <= CURDATE()
+                 AND end_date >= CURDATE() THEN 'Active'
+            WHEN end_date < CURDATE() THEN 'Completed'
+        END
+    """)
+
+    db.commit()
+
+    print('task sudah di update', cursor.rowcount)
+
+    cursor.close()
 
 
 if __name__ == "__main__":
