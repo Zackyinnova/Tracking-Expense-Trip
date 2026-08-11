@@ -97,47 +97,55 @@
 
                 {% for list in trips %}
                     <div class="bg-white p-4 rounded-[12px] flex flex-col gap-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
-                    <!--header card-->
-                    <div class="flex flex-col gap-2 ">
-                        <!--Tittle card-->
-                        <div class="flex flex-row items-center justify-between">
-                            <P class="text-[#002631] font-semibold text-[20px]">{{ list.trip_name}}</P>
+                        <!--header card-->
+                        <div class="flex flex-col gap-2 ">
+                            <!--Tittle card-->
+                            <div class="flex flex-row items-center justify-between">
+                                <P class="text-[#002631] font-semibold text-[20px]">{{ list.trip_name}}</P>
 
-                            <p class="bg-[#003D4D] text-[#79a8ba] px-3 py-1 rounded-[4px]">
-                                {{ list.start_date.day }} -
-                                {{ list.end_date.strftime('%d %b %Y') }}
-                            </p>
+                                <p class="bg-[#003D4D] text-[#79a8ba] px-3 py-1 rounded-[4px]">
+                                    {{ list.start_date.day }} -
+                                    {{ list.end_date.strftime('%d %b %Y') }}
+                                </p>
 
-                        </div>
-
-                        <!--Location card-->
-                        <div class="flex flex-row items-center gap-2">
-                            <div class="location-icon">
-                                <i data-lucide="map-pin"></i>
                             </div>
 
-                            <P>{{ list.location }}</P>
-                        </div>
-                    </div>
+                            <!--Location card-->
+                            <div class="flex flex-row items-center gap-2">
+                                <div class="location-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
 
-                    <!--bottom card-->
-                    <div class="flex flex-row justify-between border-t-2  border-[#C0C8CC]/30 pt-4">
-                        <div class="">
-                            <P class="uppercase font-semibold text-[12px] text-[#71787C]">Total pegeluaran</P>
-
-                            <P class="font-bold text-[28px] color-black">Rp 735.000</P>
+                                <P>{{ list.location }}</P>
+                            </div>
                         </div>
 
-                        <div class="bg-[#F3F4F5] px-3 py-2 h-fit flex flex-row gap-2 rounded-[4px]">
-                            <div class="total-icon">
-                                <i data-lucide="scroll-text"></i>
-                                    
+                        <!--bottom card-->
+                        <div class="flex flex-row justify-between border-t-2  border-[#C0C8CC]/30 pt-4">
+                            <div class="">
+                                <P class="uppercase font-semibold text-[12px] text-[#71787C]">Total pegeluaran</P>
+
+                                <P class="font-bold text-[28px] color-black">{{ list.total_budget|rupiah }}</P>
                             </div>
 
-                            <P class="text-[#41484B] font-semibold">18</P>
+                            <div class="bg-[#F3F4F5] px-3 py-2 h-fit flex flex-row gap-2 rounded-[4px]">
+                                <div class="total-icon">
+                                    <i data-lucide="scroll-text"></i>
+                                        
+                                </div>
+
+                                <P class="text-[#41484B] font-semibold">18</P>
+                            </div>
+                            
                         </div>
-                        
-                    </div>
+
+                        <!--Btn detail-->
+                        <a href="{{ url_for('trip_detail', trip_id = list.id )}}"
+                            class="w-full">
+                            <button class="w-full bg-[#003D4D] text-white py-2 rounded">
+                                Detail
+                            </button>   
+                        </a>
                     </div>
                 {% endfor %}
 

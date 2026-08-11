@@ -44,6 +44,10 @@ def index():
         trips = trips
     )
 
+@app.template_filter('rupiah')
+def rupiah(value):
+    return f"Rp {value:,.0f}".replace(",", ".")
+
 @app.route('/submitNewTrip', methods = ['POST'])
 def submitNewTrip():
     cursor = db.cursor()
@@ -103,6 +107,29 @@ def update_status_trip():
     print('task sudah di update', cursor.rowcount)
 
     cursor.close()
+
+@app.route('/trip/<int:trip_id>')
+def trip_detail(trip_id):
+
+    cursor = db.cursor(dictionary=True)
+
+    cursor.execute("""
+        SELECT *
+        FROM trips
+        WHERE id = %s
+    """, (trip_id,))
+
+    trip = cursor.fetchone()
+
+    cursor.close()
+
+    if trip is None:
+        return "Trip tidak ditemukan", 404
+
+    return render_template(
+        'tripDetail.html',
+        trip=trip
+    )
 
 
 if __name__ == "__main__":
