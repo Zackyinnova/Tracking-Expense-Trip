@@ -15,9 +15,177 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body class="class="bg-[#F8F9FA] flex flex-col md:flex-row">
+<body class="bg-[#F8F9FA] flex flex-col md:flex-row">
     
-</body>
+</body class="bg-[#F8F9FA] flex flex-col md:flex-row">
+    <header class="px-5 py-5 bg-white md:sticky md:top-0 md:h-screen md:w-[18%] md:border-r md:border-[#E1E3E4]">
+            <!--For Mobile-->
+            <section class="md:hidden">
+                <!--Left Navbar-->
+                <div class="flex flex-row items-center gap-1">
+                    
+                    <div class="trip-icon">
+                        <i data-lucide="compass"></i>
+                    </div>
 
-    
+                    <div>
+                        <P class="font-semibold text-[24px] text-[#002631]">TripTrack</P>
+                    </div>
+                </div>
+
+                <!--Right Navbar-->
+                <div class="">
+
+                </div>
+            </section>
+
+            <!--For Deskop-->
+            <section>
+                <div class="hidden md:block p-4 flex flex-col gap-6 ">
+
+                    <!--Header side bar-->
+                    <div class="flex flex-row items-center gap-2 py-2 pt-4 pb-6 border-b border-[#E1E3E4] ">
+                        <div class="bg-[#003D4D] flex justify-center w-[40px] h-[40px] items-center rounded-full">
+                            <div class="icon-people">
+                                <i data-lucide="user"></i>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <P class="text-[#002631] font-semibold text-[24px]">TripTrack</P>
+
+                            <P class="text-[#41484B] font-semibold text-[12px] whitespace-nowrap">Manage Expenses</P>
+                        </div>
+                    </div>
+
+                    <nav class="flex flex-col gap-3">
+                        <a href="">
+                            <div class="bg-[#003D4D] px-4 py-2 flex flex-row items-center gap-2 rounded">
+                                <div class="icon-trip">
+                                    <i data-lucide="backpack"></i>
+                                </div>
+
+                                <P class="text-[#79A8BA] font-bold text-[12px]">My Trips</P>
+                            </div>
+                        </a>
+
+                        <a href="">
+                            <div class=" px-4 py-2 flex flex-row items-center gap-2 rounded">
+                                <div class="icon-settings text-[#41484B] ">
+                                    <i data-lucide="settings"></i>
+                                </div>
+
+                                <P class="text-[#41484B] font-bold text-[12px]">settings</P>
+                            </div>
+                        </a>
+                    </nav>
+                </div>
+            </section>
+    </header>
+
+    <main class="flex-1">
+        <!--Header main-->
+        <section>
+            <div class="px-5 py-4 ">
+                <div class="flex flex-col gap-2">
+                    <p>My Trips > 
+                        <span class="text-[#002631] font-bold">
+                            {{ trip.trip_name}}
+                        </span>
+                    </p>
+
+                    <P>
+                        {{ trip.trip_name}}
+                    </P>
+
+                    <div class="flex flex-row gap-4 items-center ">
+                        <div class="flex flex-row gap-2 items-center">
+                            <i data-lucide="map-pin" class="w-[18px] text-[#41484B]"></i>
+                            <P class="text-[14px] text-[#41484B]">{{trip.location}}</P>
+                        </div>
+
+                        <div class="flex flex-row gap-2 items-center">
+
+                            <i data-lucide="calendar-days" class="w-[18px] text-[#41484B]"></i>
+                            <P class="text-[14px] text-[#41484B]">
+                                {{ trip.start_date.day }}-{{ trip.end_date.strftime('%d %b %Y') }}
+                            </P>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--section total expense-->
+        <section>
+            <div class="px-5 py-4 grid grid-cols-2  gap-4">
+                <!--total expense-->
+                <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
+                    <P class="text-[#41484B] text-[16px] font-semibold">total expenses</P>
+                    <P>Rp.735.000</P>
+                </div>
+
+                <!--budget sisa-->
+                <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
+                    <P class="text-[#41484B] text-[16px] font-semibold">Remaining Budget</P>
+                    <P>Rp.735.000</P>
+                </div>
+
+                <!--total transaksi-->
+                <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
+                    <P class="text-[#41484B] text-[16px] font-semibold">Transactions</P>
+                    <P>Rp.735.000</P>
+                </div>
+
+                <!--rata-rata pengeluaran-->
+                <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
+                    <P class="text-[#41484B] text-[16px] font-semibold">Average Expense</P>
+                    <P>Rp.735.000</P>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--navigation bar for mobile-->
+    <div class="bg-white md:hidden fixed bottom-0 left-0 right-0 shadow-[0_-4px_20px_0_rgba(0,61,77,0.05)] ">
+        
+        <div class="flex flex-row flex-row justify-between px-5 py-4">
+            <a href="/">
+                <div class="flex flex-col items-center gap-1">
+                    <div class="icon-list">
+                        <i data-lucide="list"></i>
+                    </div>
+
+                    <P class="text-[#002631] font-bold text-[12px]">My Trips</P>
+                </div>
+
+            </a>
+
+
+            <div class="flex flex-col items-center gap-1" id="btnAddTrip">
+                    <div class="icon-lis">
+                        <i data-lucide="circle-plus"></i>
+                    </div>
+
+                    <P class="text-[#002631] font-bold text-[12px]">add Trips</P>
+            </div>
+
+            <a>
+                <div class="flex flex-col items-center gap-1">
+                    <div class="icon-list">
+                        <i data-lucide="settings"></i>
+                    </div>
+
+                    <P class="text-[#002631] font-bold text-[12px]">Settings</P>
+                </div>
+
+            </a>
+        </div>
+        
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </html>
