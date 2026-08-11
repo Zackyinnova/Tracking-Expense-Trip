@@ -123,25 +123,34 @@
                 <!--total expense-->
                 <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
                     <P class="text-[#41484B] text-[16px] font-semibold">total expenses</P>
-                    <P>Rp.735.000</P>
+                    <P class="font-semibold text-[20px] text-[#191C1D]">{{ total_expense|rupiah }}</P>
                 </div>
 
                 <!--budget sisa-->
                 <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
                     <P class="text-[#41484B] text-[16px] font-semibold">Remaining Budget</P>
-                    <P>Rp.735.000</P>
+                    <P class="font-semibold text-[20px] text-[#191C1D]">{{ remaining_budget|rupiah }}</P>
+                    <P class="text-[10px] text-[#41484B] font-bold">Budget awal : {{trip.total_budget|rupiah}}</P>
                 </div>
 
                 <!--total transaksi-->
                 <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
                     <P class="text-[#41484B] text-[16px] font-semibold">Transactions</P>
-                    <P>Rp.735.000</P>
+                    <P class="font-semibold text-[20px] text-[#191C1D]">{{total_transactions}}</P>
                 </div>
 
                 <!--rata-rata pengeluaran-->
                 <div class="bg-white border border-[#EDEEEF] rounded p-4 shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
                     <P class="text-[#41484B] text-[16px] font-semibold">Average Expense</P>
-                    <P>Rp.735.000</P>
+                    <P class="font-semibold text-[20px] text-[#191C1D]">{{ average_expense|rupiah }}</P>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="px-5 py-4 ">
+                <div class="bg-white border border-[#EDEEEF] shadow-[0_4px_20px_0_rgba(0,61,77,0.05)]">
+                    <P>asd</P>
                 </div>
             </div>
         </section>

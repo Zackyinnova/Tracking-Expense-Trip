@@ -113,6 +113,7 @@ def trip_detail(trip_id):
 
     cursor = db.cursor(dictionary=True)
 
+    # Ambil data trip
     cursor.execute("""
         SELECT *
         FROM trips
@@ -121,14 +122,51 @@ def trip_detail(trip_id):
 
     trip = cursor.fetchone()
 
-    cursor.close()
-
+    # Kalau trip tidak ditemukan
     if trip is None:
+        cursor.close()
         return "Trip tidak ditemukan", 404
+
+    # Ambil semua transaksi
+    cursor.execute("""
+        SELECT *
+        FROM trip_details
+        WHERE trip_id = %s
+        ORDER BY transaction_date ASC
+    """, (trip_id,))
+
+    details = cursor.fetchall()
+
+    # Hitung statistik transaksi
+    cursor.execute("""
+        SELECT 
+            COUNT(*) AS total_transactions,
+            COALESCE(SUM(amount), 0) AS total_expense,
+            COALESCE(AVG(amount), 0) AS average_expense
+        FROM trip_details
+        WHERE trip_id = %s
+    """, (trip_id,))
+
+    result = cursor.fetchone()
+
+    total_transactions = result['total_transactions']
+    total_expense = result['total_expense']
+    average_expense = result['average_expense']
+
+    # Hitung sisa budget
+    total_budget = trip['total_budget']
+    remaining_budget = total_budget - total_expense
+
+    cursor.close()
 
     return render_template(
         'tripDetail.html',
-        trip=trip
+        trip=trip,
+        details=details,
+        total_transactions=total_transactions,
+        total_expense=total_expense,
+        average_expense=average_expense,
+        remaining_budget=remaining_budget
     )
 
 
